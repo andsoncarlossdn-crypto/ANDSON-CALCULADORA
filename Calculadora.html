@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Pontos</title>
+</head>
+<body>
+    <h2>Informe a quantidade de serviços:</h2>
+    <div>
+        <label for="servico1">RELIGAÇÃO COM REPOSIÇÃO DE RAMAL:</label>
+        <input type="number" id="servico1" data-pontos="3.47" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico2">RELIGAÇÃO IMPRODUTIVA:</label>
+        <input type="number" id="servico2" data-pontos="1.37" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico3">RELIGAÇÃO NO MEDIDOR:</label>
+        <input type="number" id="servico3" data-pontos="1.77" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico4">RELIGAÇÃO NO POSTE:</label>
+        <input type="number" id="servico4" data-pontos="2.57" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico5">COLETA DE DADOS GERAIS:</label>
+        <input type="number" id="servico5" data-pontos="2.2" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico6">DESLIGAMENTO DE UC:</label>
+        <input type="number" id="servico6" data-pontos="2.33" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico7">DESLOCAMENTO DE RAMAL:</label>
+        <input type="number" id="servico7" data-pontos="3.43" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico8">LIGAÇÃO PROVISÓRIA:</label>
+        <input type="number" id="servico8" data-pontos="3.93" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico9">LN COM MONTAGEM DE PADRÃO:</label>
+        <input type="number" id="servico9" data-pontos="5.43" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico10">LN SEM MONTAGEM DE PADRÃO:</label>
+        <input type="number" id="servico10" data-pontos="3.63" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico11">MUDANÇA DE MEDIDOR:</label>
+        <input type="number" id="servico11" data-pontos="4.33" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico12">SERVIÇO IMPRODUTIVO:</label>
+        <input type="number" id="servico12" data-pontos="1.73" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico13">TROCA DE PADRÃO COM AUMENTO DE CARGA:</label>
+        <input type="number" id="servico13" data-pontos="4.93" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico14">TROCA DE PADRÃO SEM AUMENTO DE CARGA:</label>
+        <input type="number" id="servico14" data-pontos="4.33" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico15">EMERGÊNCIAL INDIVIDUAL:</label>
+        <input type="number" id="servico15" data-pontos="5.4" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico16">DÉBITO PAGO:</label>
+        <input type="number" id="servico16" data-pontos="1.98" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico17">EMERGENCIA COLETIVA AL:</label>
+        <input type="number" id="servico17" data-pontos="18.2" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico18">EMERGENCIA COLETIVA BT:</label>
+        <input type="number" id="servico18" data-pontos="9.8" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico19">EMERGENCIA COLETIVA MT:</label>
+        <input type="number" id="servico19" data-pontos="11.3" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico20">EMERGENCIA IMPRODUTIVA:</label>
+        <input type="number" id="servico20" data-pontos="3.4" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico21">EMERGENCIA INDIVIDUAL:</label>
+        <input type="number" id="servico21" data-pontos="5.2" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico22">INSTALAÇÃO DE ANALISADOR DE QUALIDADE:</label>
+        <input type="number" id="servico22" data-pontos="4.8" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico23">INSTALAÇÃO DE PARA RAIOS:</label>
+        <input type="number" id="servico23" data-pontos="5.2" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico24">NIVEL DE TENSAO:</label>
+        <input type="number" id="servico24" data-pontos="5.2" value="0" min="0">
+    </div>
+    <div>
+        <label for="servico25">RETIRADA DE ANALISADOR DE QUALIDADE:</label>
+        <input type="number" id="servico25" data-pontos="4.6" value="0" min="0">
+    </div>
+
+    <button onclick="calcular()">Calcular Pontuação UPS</button>
+    <h3 id="resultado">Pontuação Total: 0</h3>
+
+    <script>
+        function calcular() {
+            let total = 0;
+            const servicos = document.querySelectorAll('input[type="number"]');
+            servicos.forEach(servico => {
+                const quantidade = parseInt(servico.value) || 0;
+                const pontos = parseFloat(servico.getAttribute('data-pontos'));
+                total += quantidade * pontos;
+            });
+            document.getElementById('resultado').innerText = `Pontuação Total: ${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
